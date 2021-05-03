@@ -20,6 +20,11 @@ Plugin 'moll/vim-node'
 Plugin 'dense-analysis/ale'
 Plugin 'Chiel92/Omnisharp'
 Plugin 'Shougo/deoplete.nvim'
+Plugin 'fatih/vim-go'
+Plugin 'Xuyuanp/nerdtree-git-plugin' 
+Plugin 'ryanoasis/vim-devicons'
+Plugin 'vim-airline/vim-airline'
+Plugin 'itchyny/lightline.vim'
 
 call vundle#end()
 
@@ -32,6 +37,10 @@ let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_enable_smart_case = 1
 let g:neocomplcache_enable_camel_case_completion = 1
 let g:neocomplcache_enable_underbar_completion = 1
+let g:NERDTreeGitStatusUseNerdFonts = 1
+let g:NERDTreeGitStatusConcealBrackets = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
 
 map <C-n> :NERDTreeToggle<CR>
 nnoremap <F12> :OmniSharpGotoDefinition<cr>
@@ -45,6 +54,9 @@ nnoremap fu :OmniSharpFindUsages<cr>
 inoremap <expr> <Tab> pumvisible() ? '<C-n>' :
 \ getline('.')[col('.')-2] =~# '[[:alnum:].-_#$]' ? '<C-x><C-o>' : '<Tab>'
 
+autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
+    \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
+
 filetype plugin on
 filetype plugin indent on 
 set nocompatible
@@ -52,4 +64,4 @@ set number
 set relativenumber
 syntax on
 syntax enable
-
+set encoding=UTF-8
