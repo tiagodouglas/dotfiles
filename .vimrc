@@ -69,6 +69,7 @@ nnoremap <F12> :OmniSharpGotoDefinition<cr>
 nnoremap gd :OmniSharpGotoDefinition<cr>
 nnoremap fi :OmniSharpFindImplementations<cr>
 nnoremap fu :OmniSharpFindUsages<cr>
+nnoremap fx :OmniSharpFixUsings<cr>
 nnoremap <C-o><C-u> :OmniSharpFindUsages<CR>
 nnoremap <C-o><C-d> :OmniSharpGotoDefinition<CR>
 nnoremap <C-o><C-d><C-p> :OmniSharpPreviewDefinition<CR>
